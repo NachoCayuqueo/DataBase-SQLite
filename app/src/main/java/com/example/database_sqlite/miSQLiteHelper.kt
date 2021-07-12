@@ -9,9 +9,9 @@ class miSQLiteHelper(context: Context):SQLiteOpenHelper(
     context,"dataBase.db",null,1) {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        val ordenCreacion = "CREATE TABLE amigos "+
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nombre TEXT, email TEXT)"
+        val ordenCreacion = "CREATE TABLE usuario "+
+                "(nombre STRING PRIMARY KEY," +
+                "contraseña STRING)"
 
         db!!.execSQL(ordenCreacion)
     }
