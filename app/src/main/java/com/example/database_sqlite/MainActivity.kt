@@ -1,5 +1,6 @@
 package com.example.database_sqlite
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -7,26 +8,28 @@ import android.widget.EditText
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var dataBase: miSQLiteHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        dataBase = miSQLiteHelper(this)
         comenzar()
     }
     private fun comenzar(){
-        /**BOTON**/
+        /**BOTONES**/
         val enterButton = findViewById<Button>(R.id.enter_button)
-
-        /**USUARIO Y CONTRASEÑA**/
-        val userText = findViewById<EditText>(R.id.user_edit_text)
-        val passText = findViewById<EditText>(R.id.password_edit_text)
+        val logInButton = findViewById<Button>(R.id.log_in_button)
 
         enterButton.setOnClickListener {
-            val name = userText.text.toString()
-            //se verifica si se ingreso un nombre
-            if(name != ""){//si existe un nombre ingreso
 
-            }
+        }
+
+        logInButton.setOnClickListener {
+            val intent = Intent(this,LogInActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }
