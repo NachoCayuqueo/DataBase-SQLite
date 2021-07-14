@@ -29,6 +29,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
+        <EditText
+            android:id="@+id/userName_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="username"
+            android:textSize="20dp"
+            android:maxLength="10"
+            />
+
         <Button
             android:id="@+id/enter_button"
             android:layout_width="match_parent"
