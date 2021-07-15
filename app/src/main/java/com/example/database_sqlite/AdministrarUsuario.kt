@@ -52,6 +52,15 @@ class AdministrarUsuario {
         }
     }
 
-    //verificar si un usuario existe
-
+    //Eliminar un usuario
+    fun deleteUsuario(user: String){
+        try {
+            val db = AppUsuarios.DB.writableDatabase
+            val qry = "DELETE FROM ${AppUsuarios.TB_USUARIO} WHERE ${Contract.Usuario.userID} = '$user';"
+            db.execSQL(qry)
+            db.close()
+        }catch (ex: Exception){
+            Toast.makeText(AppUsuarios.CONTEXT,"No se pudo eliminar el usuario",Toast.LENGTH_SHORT).show()
+        }
+    }
 }
