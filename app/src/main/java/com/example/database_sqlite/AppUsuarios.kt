@@ -10,7 +10,7 @@ import android.content.Context
 class AppUsuarios: Application() {
 
     companion object{
-        //variable perezosa, se define aca pero se inicializa mas adelante
+        /*variable perezosa, se define aca pero se inicializa mas adelante*/
         lateinit var CONTEXT: Context
         lateinit var DB: miSQLiteHelper //accedo a la base de datos
 

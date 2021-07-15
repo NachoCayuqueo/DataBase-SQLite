@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper
 class miSQLiteHelper:SQLiteOpenHelper(
     AppUsuarios.CONTEXT,AppUsuarios.DB_NAME,null,AppUsuarios.VERSION) {
 
-    val qryCreateTable = "CREATE TABLE ${AppUsuarios.DB_NAME}("+
+    val qryCreateTable = "CREATE TABLE ${AppUsuarios.TB_USUARIO}("+
             "${Contract.Usuario.userID} STRING PRIMARY KEY,"+
             "${Contract.Usuario.nombre} STRING,"+
-            "${Contract.Usuario.password} STRING"
+            "${Contract.Usuario.password} STRING)"
 
     override fun onCreate(db: SQLiteDatabase?) {
         db!!.execSQL(qryCreateTable)
@@ -19,18 +19,8 @@ class miSQLiteHelper:SQLiteOpenHelper(
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
 
-        db!!.execSQL("DROP TABLE IF EXISTS $qryCreateTable")
-        onCreate(db)
+        //db!!.execSQL("DROP TABLE IF EXISTS $qryCreateTable")
+        //onCreate(db)
     }
 
-    /**añadir datos**/
-    fun addDate(nombre:String,email:String){
-        val datos = ContentValues()
-        datos.put("nombre",nombre)
-        datos.put("email",email)
-
-        val db = this.writableDatabase
-        db.insert("dataBase",null,datos)
-        db.close()
-    }
 }

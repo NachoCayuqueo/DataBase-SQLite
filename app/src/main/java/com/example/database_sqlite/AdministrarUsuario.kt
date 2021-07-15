@@ -37,16 +37,21 @@ class AdministrarUsuario {
     }
 
     //insertar un usuario
-    fun addUser(usuario:Usuario){
+    fun addUser(usuario: Usuario){
         try {
             val db = AppUsuarios.DB.writableDatabase
+
             var qry = "INSERT INTO ${AppUsuarios.TB_USUARIO} ("+
-                    "${Contract.Usuario.userID}, ${Contract.Usuario.nombre}, ${Contract.Usuario.password}" +
-                    "VALUES('${usuario.name}, ${usuario.password}');"
+                    "${Contract.Usuario.userID}, ${Contract.Usuario.nombre}, ${Contract.Usuario.password})" +
+                    "VALUES('${usuario.userId}','${usuario.name}','${usuario.password}');"
+
             db.execSQL(qry)
             db.close()
         }catch (ex:Exception){
             Toast.makeText(AppUsuarios.CONTEXT,"No se pudo guardar el usuario",Toast.LENGTH_SHORT).show()
         }
     }
+
+    //verificar si un usuario existe
+
 }
