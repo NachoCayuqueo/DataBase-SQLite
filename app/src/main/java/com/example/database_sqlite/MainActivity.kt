@@ -35,8 +35,6 @@ class MainActivity : AppCompatActivity() {
                 if(existeUsuario(username)){ //busco usuario en BD
                     val intent = Intent(this,ResultActivity::class.java)
                     startActivity(intent)
-
-                    finish()
                 }else{
                     Toast.makeText(this,"No existe usuario, debe loguearse para jugar",Toast.LENGTH_SHORT).show()
                 }

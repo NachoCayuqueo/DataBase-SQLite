@@ -37,7 +37,7 @@ class LogInActivity: AppCompatActivity() {
                     if(sonIguales(password,repeatPassword)){
                         val usuario = Usuario(user,name,password)
                         usuarioAdmin.addUser(usuario)
-                        finish()
+                        onBackPressed()
                     }
                     else{
                         Toast.makeText(this,"Deben ser contraseñas iguales", Toast.LENGTH_SHORT).show()
