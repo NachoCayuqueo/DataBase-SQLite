@@ -1,7 +1,5 @@
 package com.example.database_sqlite
 
-import android.content.ContentValues
-import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
@@ -19,8 +17,8 @@ class miSQLiteHelper:SQLiteOpenHelper(
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
 
-        //db!!.execSQL("DROP TABLE IF EXISTS $qryCreateTable")
-        //onCreate(db)
+        db!!.execSQL("DROP TABLE IF EXISTS ${AppUsuarios.TB_USUARIO}")
+        onCreate(db)
     }
 
 }
